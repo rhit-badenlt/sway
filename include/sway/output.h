@@ -114,6 +114,8 @@ void output_sort_workspaces(struct sway_output *output);
 
 void output_enable(struct sway_output *output);
 
+void output_arrange(struct sway_output *output);
+
 void output_disable(struct sway_output *output);
 
 struct sway_workspace *output_get_active_workspace(struct sway_output *output);

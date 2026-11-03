@@ -151,11 +151,14 @@ void output_enable(struct sway_output *output) {
 	if (!sway_assert(!output->enabled, "output is already enabled")) {
 		return;
 	}
-	struct wlr_output *wlr_output = output->wlr_output;
 	output->enabled = true;
 	list_add(root->outputs, output);
 
 	sway_ext_workspace_output_enable(output);
+}
+
+void output_arrange(struct sway_output *output) {
+	struct wlr_output *wlr_output = output->wlr_output;
 	restore_workspaces(output);
 
 	struct sway_workspace *ws = NULL;
